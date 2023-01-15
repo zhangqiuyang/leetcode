@@ -1,0 +1,122 @@
+Java数据类型教程 - Java char数据类型
+
+char数据类型是16位无符号Java基元数据类型。它表示Unicode字符。
+
+请注意，char是无符号数据类型。因此，char变量不能为负值。
+
+字符数据类型的范围为0到65535，这与Unicode集的范围相同。
+
+字符字面量
+字符字面量表示char数据类型的值。 Java中的字符字面量可以用以下格式表示：
+
+用单引号括起来的字符
+作为字符转义序列
+作为Unicode转义序列
+作为八进制转义序列
+字符可以通过用单引号括起来表示。
+
+以下代码段使用此形式为char变量赋值：
+
+char   c1  = 'A'; 
+char   c2  = 'L'; 
+char   c3  = '5'; 
+char   c4  = '/';
+用双引号括起来的字符序列是一个String字面量。
+
+不能将字符串字面量分配给char变量，即使String字面量只有一个字符。
+
+
+字符转义序列
+字符字面量可以表示为字符转义序列。
+
+字符转义序列以反斜杠开头，后面紧跟一个字符，并且都用单引号括起来。
+
+有八个预定义的字符转义序列，如下表所列。
+
+字符转义序列	描述
+'\n'	换行
+'\r'	回车
+'\f'	表单Feed
+'\b'	退格
+'\t'	标签
+'\\'	反斜杠
+'\"'	双引号
+'\''	单引号
+Java中只有八个字符转义序列。我们不能定义你自己的字符转义序列。
+
+char   c1  = "\n"; // Assigns a linefeed to c1 
+char   c2  = "\""; // Assigns double quote to c2
+char   c3  = "\a"; // A compile-time error. Invalid character escape sequence
+
+Unicode
+字符字面量可以表示为“\ uxxxx”形式的Unicode转义序列。
+
+这里， \u 表示Unicode转义序列的开始，xxxx正好表示四个十六进制数字。
+
+由xxxx表示的值是字符的Unicode值。
+
+字符'A'有65 65十进制可以用十六进制表示为41的值的Unicode值。
+
+因此，字符'A'可以用Unicode转义序列表示为'\ u0041'。
+
+以下代码将相同的字符“A”分配给char变量c1和c2：
+
+char c1  = "A";
+char c2  = "\u0041"; // Same as  c2  = "A"
+字符文字可以表示为形式为'\ nnn'的八进制转义序列。
+
+这里，n是八进制数（0-7）。八进制转义序列的范围是'\ 000'到'\ 377'。
+
+八进制数377与十进制数255相同。因此，使用八进制转义序列，我们可以表示Unicode代码范围从0到255个十进制整数的字符。
+
+Unicode字符集（代码范围0到65535）可以表示为Unicode转义序列（'\ uxxxx'）。
+
+Unicode字符集（代码范围0到65535）可以表示为Unicode转义序列（'\ uxxxx'）。
+
+当为字符变量分配一个int字面量时，char变量表示其Unicode代码等于该字符串表示的值的字符。
+
+字符'a'的Unicode代码是97.十进制值97被表示为141八进制和61十六进制。
+
+下面的代码显示了如何使用int字面值97来表示Unicode字符'a'。
+
+char   c1  = 97;  // Same as  
+c1  = "a"; 
+c1  = "\141"; 
+c1  = "\u0061";
+例子
+这里是一个程序，演示char变量：
+
+public class Main {
+  public static void main(String args[]) {
+    char ch1, ch2;
+    ch1 = 88; // code for X
+    ch2 = "Y";
+    System.out.print("ch1 and ch2: ");
+    System.out.println(ch1 + " " + ch2);
+  }
+}
+ch1 被分配值88，它是对应于字母X的ASCII和Unicode值。ASCII字符集占据Unicode字符集中的前127个值。
+
+上面的代码生成以下结果。
+
+
+例2
+char旨在保存Unicode字符，但它也可以用作整数类型，您可以在其上执行算术运算。
+
+例如，您可以将两个字符添加在一起，或者增加一个字符变量的值。
+
+public class Main {
+  public static void main(String args[]) {
+    char ch1;
+
+    ch1 = "X";
+    System.out.println("ch1 contains " + ch1);
+
+    ch1++; // increment ch1
+    System.out.println("ch1 is now " + ch1);
+  }
+}
+在程序中，首先给ch1赋值X.接下来，ch1递增。这导致ch1包含Y，ASCII（和Unicode）序列中的下一个字符。
+
+上面的代码生成以下结果。
+
